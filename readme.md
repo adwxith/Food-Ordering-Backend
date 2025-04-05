@@ -144,30 +144,7 @@ POST /api/orders
 **Status Values:** `PENDING`, `PREPARING`, `OUT_FOR_DELIVERY`, `DELIVERED`, `CANCELLED`
 
 ---
-
-## 💰 Payment APIs
-```http
-POST /api/payments
-```
-**Required Permissions:**  
-🔒 Requires **customer** role (JWT token in Authorization header)
-**Request:**
-```json
-{
-  "orderId": 5,
-  "amount": 50,
-  "paymentMethod": "CREDIT_CARD",
-  "cardNumber": "4111111111111111",
-  "expiryDate": "12/25",
-  "cvv": "123"
-}
-```
-```http
-GET /api/payments/order/{orderId}  
-```
-
----
-### 🔄 Update Order Status
+###  Update Order Status
 
 **Endpoint:**
 ```http
@@ -195,6 +172,31 @@ PUT /api/orders/{orderId}/status
 | `CANCELLED`         | Order cancelled (by customer/staff)  |
 ```
 
+## 💰 Payment APIs
+```http
+POST /api/payments
+```
+**Required Permissions:**  
+🔒 Requires **customer** role (JWT token in Authorization header)
+**Request:**
+```json
+{
+  "orderId": 5,
+  "amount": 50,
+  "paymentMethod": "CREDIT_CARD",
+  "cardNumber": "4111111111111111",
+  "expiryDate": "12/25",
+  "cvv": "123"
+}
+```
+```http
+GET /api/payments/order/{orderId}  #to get status of the payment 
+
+```
+
+---
+
+
 
 
 
@@ -220,6 +222,7 @@ GET /api/orders/feedback/{orderId}  # Accessible by User/Admin/Staff
 ```http
 GET /api/users/me  # Get current user
 PUT /api/users/me  # Update profile
+DELETE /api/users/me  # Delete profile
 ```
 **Update Request:**
 ```json
@@ -254,14 +257,3 @@ PUT /api/users/me  # Update profile
 
 **Happy Coding!** 🚀
 ```
-
-Key improvements:
-1. Removed sample tokens (now instructs to use login endpoint)
-2. Added database setup instructions
-3. Included DataInitializer explanation
-4. Organized all endpoints clearly
-5. Added security notes about JWT
-6. Maintained consistent Markdown formatting
-7. Included all APIs from your text file
-
-This documentation is ready to be placed in your `README.md` file.
