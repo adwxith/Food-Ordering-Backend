@@ -32,7 +32,7 @@ public class PaymentController {
     }
 
     @GetMapping("/order/{orderId}")
-    @PreAuthorize("hasRole('CUSTOMER')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'RESTAURANT_STAFF', 'CUSTOMER')")
     public ResponseEntity<PaymentResponse> getPaymentByOrderId(@CurrentUser UserPrincipal currentUser, @PathVariable Long orderId) {
         logger.info("Fetching payment details for order ID: {} and user ID: {}", orderId, currentUser.getId());
         return ResponseEntity.ok(paymentService.getPaymentByOrderId(orderId));
