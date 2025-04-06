@@ -14,7 +14,13 @@ This is a Spring Boot-based RESTful API for an online food ordering platform wit
 - Maven
 - MySql
 - Postman (for testing)
+- 
+### 📂 Clone the Repository
+```bash
+git clone https://github.com/adwxith/Food-Ordering-Backend.git
+cd Food-Ordering-Backend
 
+```
 ### 🗄️ Database Setup
 1. Create MySQL database:
    ```sql
@@ -256,4 +262,4 @@ DELETE /api/users/me  # Delete profile
 ---
 
 **Happy Coding!** 🚀
-```
+
